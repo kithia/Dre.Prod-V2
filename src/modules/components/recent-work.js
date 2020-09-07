@@ -45,26 +45,27 @@ function RecentWork() {
                 {/* Videos map */}
                 {videos.map((videos) => (
                 <Grid item xs={12} lg={6}>
-                    <Card>
-                    <CardActionArea style={{ borderRadius: 16 }} disableRipple>
-                        <CardMedia style={{ margin: 1, marginBottom: 0 }}>
-                            {/* eslint-disable-next-line jsx-a11y/iframe-has-title */}
-                            <iframe style={{ width: '100%', height: '370px' }} id={videos.id}
-                                src={videos.src} frameBorder="0"
-                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen/>
-                        </CardMedia>
-                        <CardContent>
-                            <div align='center'>
-                                <Typography gutterBottom variant="h5" component="h2">
-                                    Lorem Ipsum
-                                </Typography>
-                                <Typography variant="body2" color="textSecondary" component="p">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                </Typography>
-                            </div>
-                        </CardContent>
-                    </CardActionArea></Card>
+                    <Card style={{ borderRadius: '12px 12px 4px 4px' }}>
+                        <CardActionArea style={{ borderRadius: 16 }} disableRipple>
+                            <CardMedia style={{ margin: 1, marginBottom: 0 }}>
+                                {/* eslint-disable-next-line jsx-a11y/iframe-has-title */}
+                                <iframe style={{ width: '100%', height: '370px' }} id={videos.id}
+                                    src={videos.src} frameBorder="0"
+                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen/>
+                            </CardMedia>
+                            <CardContent>
+                                <div align='center'>
+                                    <Typography gutterBottom variant="h5" component="h2">
+                                        Lorem Ipsum
+                                    </Typography>
+                                    <Typography variant="body2" color="textSecondary" component="p">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                    </Typography>
+                                </div>
+                            </CardContent>
+                        </CardActionArea>
+                    </Card>
                 </Grid>
                 ))}
             </Grid>

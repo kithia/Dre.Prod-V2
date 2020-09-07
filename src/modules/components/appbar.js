@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
     },
     title: {
         fontSize: 28,
-        fontWeight: 'normal',
+        fontWeight: 'bolder',
         display: 'none',
         [theme.breakpoints.up('sm')]: {
             display: 'block',
@@ -89,8 +89,12 @@ const useStyles = makeStyles((theme) => ({
     link: {
         fontSize: 20,
         fontWeight: 'inherit',
+        opacity: 0.675,
         textTransform: 'none',
         margin: theme.spacing(1, 2),
+        '&:hover': {
+            opacity: 1,
+        },
     },
     sectionDesktop: {
         display: 'none',
@@ -208,7 +212,7 @@ function SearchAppBar() {
                     <div className={classes.sectionDesktop}>
                         {/* Links map */}
                         {links.map((links) => (
-                            <Link variant="button" href={links.hyperlink} className={classes.link} style={{ color: 'white' }}>
+                            <Link variant="button" underline="none" href={links.hyperlink} className={classes.link} style={{ color: 'white' }}>
                                 <span>{links.title}</span>
                             </Link>
                         ))}
