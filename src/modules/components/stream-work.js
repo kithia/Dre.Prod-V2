@@ -10,6 +10,7 @@ import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import CardContent from "@material-ui/core/CardContent";
+import Link from "@material-ui/core/Link";
 
 const theme = createMuiTheme({
     palette: {
@@ -56,13 +57,13 @@ const useStyles = makeStyles((theme) => ({
     },
     sectionDesktop: {
         display: 'none',
-        [theme.breakpoints.up('md')]: {
+        [theme.breakpoints.up('sm')]: {
             display: 'flex',
         },
     },
     sectionMobile: {
         display: 'flex',
-        [theme.breakpoints.up('md')]: {
+        [theme.breakpoints.up('sm')]: {
             display: 'none',
         },
     },
@@ -80,14 +81,27 @@ function StreamWork() {
                     Stream:
                 </Typography>
                 <Grid container spacing={6} justify="space-evenly" className={classes.sectionDesktop}>
+                    <Grid item xs={12}>
                     {/* Music media map */}
                     {musicMedia.map((musicMedia) => (
-                        <Grid item xs={12}>
+                        <CardContent style={{ textAlign: "center" }}>
+                            {/* eslint-disable-next-line react/jsx-no-target-blank */}
+                            <a href={musicMedia.hyperlink} target="_blank">
+                                <img src={musicMedia.srcText} alt={musicMedia.alt} height="45" />
+                            </a>
+                        </CardContent>
+                    ))}
+                    </Grid>
+                </Grid>
+                <Grid container justify="space-evenly" className={classes.sectionMobile}>
+                    {/* Music media map */}
+                    {musicMedia.map((musicMedia) => (
+                        <Grid item xs={4}>
                             <CardContent style={{ textAlign: "center" }}>
                                 {/* eslint-disable-next-line react/jsx-no-target-blank */}
-                                <a href={musicMedia.hyperlink} target="_blank">
-                                    <img src={musicMedia.srcText} alt={musicMedia.alt} height="45" />
-                                </a>
+                                <Link href={musicMedia.hyperlink} target={'_blank'}>
+                                    <img src={musicMedia.srcLogo} alt={musicMedia.alt} height="50" />
+                                </Link>
                             </CardContent>
                         </Grid>
                     ))}

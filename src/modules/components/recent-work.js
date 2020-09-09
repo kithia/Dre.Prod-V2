@@ -45,8 +45,8 @@ function RecentWork() {
                 {/* Videos map */}
                 {videos.map((videos) => (
                 <Grid item xs={12} lg={6}>
-                    <Card style={{ borderRadius: '12px 12px 4px 4px' }}>
-                        <CardActionArea style={{ borderRadius: 16 }} disableRipple>
+                    <Card style={{ borderRadius: '4px' }}>
+                        <CardActionArea style={{ borderRadius: 8 }} disableRipple>
                             <CardMedia style={{ margin: 1, marginBottom: 0 }}>
                                 {/* eslint-disable-next-line jsx-a11y/iframe-has-title */}
                                 <iframe style={{ width: '100%', height: '370px' }} id={videos.id}

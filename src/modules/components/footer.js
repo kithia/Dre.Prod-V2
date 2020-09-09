@@ -4,16 +4,19 @@ import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
-import { SocialMediaIconsReact } from 'social-media-icons-react';
+import youtube from '../../images/socials/youtube_social_circle_red.png';
+import twitter from '../../images/socials/Twitter_Logo_Blue.png';
+import instagram from '../../images/socials/IG_Glyph_Fill-0.png';
+import facebook from '../../images/socials/f_logo_RGB-Blue_1024.png';
 
 function Copyright() {
     return (
         /* Footer copyright */
-        <Typography variant="body2" color="textSecondary">
-            {'Copyright © '}
+        <Typography variant="body1" color="textPrimary">
+            {' © 2020 '}
             <Link color="inherit" href="#">
                 Dre.Prod
-            </Link>{' 2020.'}
+            </Link>
         </Typography>
     );
 }
@@ -28,19 +31,23 @@ const useStyles = makeStyles((theme) => ({
 const socialMedia = [
     /* Social media */
     {
-        icon: "youtube",
+        src: youtube,
+        alt: "YouTube",
         hyperlink: "https://www.youtube.com/channel/UCC-d4iq1FNGmq1dThW1gMJg",
     },
     {
-        icon: "twitter",
+        src: twitter,
+        alt: "Twitter",
         hyperlink: "https://twitter.com/Twitter",
     },
     {
-        icon: "instagram",
+        src: instagram,
+        alt: "Instagram",
         hyperlink: "https://www.instagram.com/instagram/",
     },
     {
-        icon: "facebook",
+        src: facebook,
+        alt: "Facebook",
         hyperlink: "https://www.facebook.com/facebook",
     },
 ];
@@ -53,12 +60,12 @@ function Footer() {
             {/* Footer */}
             <Container component="main" maxWidth="lg">
                 <footer className={classes.footer}>
-                    <Grid container spacing={6} justify="space-evenly">
+                    <Grid container spacing={2} justify="space-evenly">
                         <Grid item xs={6}>
-                            <Typography variant="h6" gutterBottom>
+                            <Typography variant="h5" gutterBottom>
                                 Dre.Prod
                             </Typography>
-                            <Typography variant="subtitle1" color="textSecondary" component="p">
+                            <Typography variant="body1" color="textPrimary" component="p">
                                 <Link color="inherit" href="mailto:email@example.co.uk?subject=Dre-Prod.co.uk Query -&nbsp">
                                     dre@produces.co.uk
                                 </Link>
@@ -68,8 +75,8 @@ function Footer() {
                         <Grid style={{ textAlign: 'right' }} item xs={6}>
                             {/* Social media map */}
                             {socialMedia.map((socialMedia) => (
-                                <Link style={{ paddingLeft: 15, target: '_blank' }}>
-                                    <SocialMediaIconsReact borderWidth="0" roundness={50} size="40" iconSize="1" icon={socialMedia.icon} url={socialMedia.hyperlink}/>
+                                <Link style={{ paddingLeft: 17.5 }} href={socialMedia.hyperlink} target={'_blank'}>
+                                    <img src={socialMedia.src} alt={socialMedia.alt} title={socialMedia.alt} height="30" />
                                 </Link>
                                 ))}
                         </Grid>

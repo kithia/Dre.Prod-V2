@@ -13,6 +13,9 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
+import Modal from "@material-ui/core/Modal";
+import Backdrop from "@material-ui/core/Backdrop";
+import Fade from "@material-ui/core/Fade";
 
 const theme = createMuiTheme({
     palette: {
@@ -42,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     },
     title: {
         fontSize: 28,
-        fontWeight: 'bolder',
+        fontWeight: 'bold',
         display: 'none',
         [theme.breakpoints.up('sm')]: {
             display: 'block',
@@ -96,6 +99,18 @@ const useStyles = makeStyles((theme) => ({
             opacity: 1,
         },
     },
+    modal: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    paper: {
+        backgroundColor: theme.palette.background.paper,
+        border: '2px solid #000',
+        boxShadow: theme.shadows[5],
+        padding: theme.spacing(2, 4, 3),
+        borderRadius: 4,
+    },
     sectionDesktop: {
         display: 'none',
         [theme.breakpoints.up('md')]: {
@@ -127,14 +142,6 @@ const links = [
     {
         title: 'Numbers',
         hyperlink: "https://numbers.bubbleapps.io/",
-    },
-    {
-        title: 'Contact',
-        hyperlink: "#",
-    },
-    {
-        title: 'Commission',
-        hyperlink: "#",
     },
 ];
 
@@ -181,9 +188,29 @@ function SearchAppBar() {
                         </Link>
                     </ListItem>
                 ))}
+                <ListItem button>
+                    <Link variant="button" underline="none" href="#" className={classes.link}>
+                        Contact
+                    </Link>
+                </ListItem>
+                <ListItem button>
+                    <Link variant="button" underline="none" href="#" className={classes.link}>
+                        Commission
+                    </Link>
+                </ListItem>
             </List>
         </div>
     );
+
+    const [open, setOpen] = React.useState(false);
+
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
 
     return (
         <div className={classes.grow}>
@@ -216,6 +243,31 @@ function SearchAppBar() {
                                 <span>{links.title}</span>
                             </Link>
                         ))}
+                        <Link variant="button" underline="none" href="#" onClick={handleOpen} className={classes.link} style={{ color: 'white' }}>
+                            <span>Contact</span>
+                        </Link>
+                        <Link variant="button" underline="none" href="#" className={classes.link} style={{ color: 'white' }}>
+                            <span>Commission</span>
+                        </Link>
+                        <Modal
+                            aria-labelledby="transition-modal-title"
+                            aria-describedby="transition-modal-description"
+                            className={classes.modal}
+                            open={open}
+                            onClose={handleClose}
+                            closeAfterTransition
+                            BackdropComponent={Backdrop}
+                            BackdropProps={{
+                                timeout: 500,
+                            }}
+                        >
+                            <Fade in={open}>
+                                <div className={classes.paper}>
+                                    <h2 id="transition-modal-title">Transition modal</h2>
+                                    <p id="transition-modal-description">react-transition-group animates me.</p>
+                                </div>
+                            </Fade>
+                        </Modal>
                     </div>
                     {/* Navbar drawer for mobile site */}
                     <div className={classes.sectionMobile}>

@@ -7,6 +7,7 @@ import mixer from './images/background/mixer-blur.jpg';
 import jamaica from './images/background/jamaica.jpg';
 import StreamWork from "./modules/components/stream-work";
 import RecentWork from "./modules/components/recent-work";
+import LoremIpsum from "./modules/components/lorem-ipsum";
 import Footer from "./modules/components/footer";
 
 const theme = createMuiTheme({
@@ -47,6 +48,7 @@ function App() {
                 <div style={{ height: 1, color: 'white' }} />
                 <div className={classes.background} id={'listen'} style={{ backgroundImage: `url(${jamaica})` }}>
                     <RecentWork />
+                    <LoremIpsum />
                 </div>
                 <Footer />
             </ThemeProvider>
